@@ -41,7 +41,7 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-#define DELIM " $\n"
+#define DELIM " \n"
 
 /* Protipypes */
 
@@ -49,6 +49,9 @@ int main(int argc, char **argv);
 void is_digit(char *str, unsigned int lines);
 void (*get_opcode(char *opcode))(stack_t **stack, unsigned int line_number);
 void op_push(stack_t **stack, unsigned int line_number);
+void op_pint(stack_t **stack, unsigned int line_number);
+void op_swap(stack_t **stack, unsigned int line_number);
+void op_nop(stack_t **stack, unsigned int line_number);
 
 extern char *command_glob;
 char *command_glob;
