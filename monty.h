@@ -59,5 +59,7 @@ void op_pop(stack_t **stack, unsigned int line_number);
 
 extern char *command_glob;
 char *command_glob;
+extern stack_t *command_glob_head;
+stack_t *command_glob_head;
 
 #endif

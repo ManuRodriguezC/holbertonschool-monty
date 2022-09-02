@@ -31,21 +31,16 @@ int main(int argc, char **argv)
 		number_lines++;
 
 		rev_token = strtok(buffer, DELIM);
+
 		if (!rev_token || rev_token[0] == ' ')
 			continue;
 		
-		if (strcmp(rev_token, "push") == 0)
-		{
-			copy_rev_token = strtok(NULL, DELIM);
-			command_glob = strdup(copy_rev_token);
+		copy_rev_token = strtok(NULL, DELIM);
 
-			if (!copy_rev_token)
-			{
-				fprintf(stderr, "L%u: usage: push integer\n", number_lines);
-				free(buffer);
-				exit(EXIT_FAILURE);
-			}
-			is_digit(copy_rev_token, number_lines);	
+		if (copy_rev_token && (strcmp(rev_token, "push") == 0))
+		{
+			is_digit(copy_rev_token, number_lines);
+			command_glob = strdup(copy_rev_token);
 		}
 
 		rev_opcode = get_opcode(rev_token);
@@ -55,6 +50,7 @@ int main(int argc, char **argv)
 			fprintf(stderr, "L%d: unknown instruction %s", number_lines, rev_token);
 			exit(EXIT_FAILURE);
 		}
+	rev_opcode(&command_glob_head, number_lines);
 	return (0);
 	}
 
