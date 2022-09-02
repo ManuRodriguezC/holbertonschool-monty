@@ -34,11 +34,9 @@ int main(int argc, char **argv)
 		if (!rev_token || rev_token[0] == ' ')
 			continue;
 		
-		copy_rev_token = strtok(NULL, DELIM);
-
 		if (strcmp(rev_token, "push") == 0)
 		{
-			is_digit(copy_rev_token, number_lines);
+			copy_rev_token = strtok(NULL, DELIM);
 			command_glob = strdup(copy_rev_token);
 
 			if (!copy_rev_token)
@@ -46,7 +44,8 @@ int main(int argc, char **argv)
 				fprintf(stderr, "L%u: usage: push integer\n", number_lines);
 				free(buffer);
 				exit(EXIT_FAILURE);
-			}	
+			}
+			is_digit(copy_rev_token, number_lines);	
 		}
 
 		rev_opcode = get_opcode(rev_token);

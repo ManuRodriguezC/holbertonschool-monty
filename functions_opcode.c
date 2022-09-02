@@ -109,11 +109,14 @@ void op_add(stack_t **stack, unsigned int line_number)
 	if (count < 2)
 	{
 		if (tmp == NULL || (*stack)->next == NULL)
-			add_error(line_number);
+		{
+			fprintf(stderr, "L%d: can't add\n", line_number);
+			exit(EXIT_FAILURE);
+		}
 	}
 
 	(tmp->next)->n = tmp->n + (tmp->next)->n;
-	_pop(stack, line_number);
+	op_pop(stack, line_number);
 }
 
 /**
@@ -134,6 +137,6 @@ void op_pop(stack_t **stack, unsigned int line_number)
 	else
 	{
 		dprintf(2, "L%d: can't pop an empty stack", line_number);
-		error(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 }
