@@ -5,15 +5,25 @@
  *
  *
  */
-void is_digit(char *str, unsigned int lines)
-{
-	int count;
 
-	for (count = 0; str[count] != '\0'; count++)
+void rev_is_digit(void)
+{
+	int count = 0;
+
+	if ((!isdigit(handle.copy_rev_token[0]) && handle.copy_rev_token[0] != '-') ||
+	(handle.copy_rev_token[0] == '-' && handle.copy_rev_token[1] == '\0'))
 	{
-		if (str[count] < '0' || str[count] > '9')
+		fprintf(stderr, "L%lu: usage: push integer\n", handle.number_lines);
+		exit(EXIT_FAILURE);
+	}
+
+	count = 1;
+	for (; handle.copy_rev_token[count] != '\0'; count++)
+	{
+		if (!isdigit(handle.copy_rev_token[count]))
 		{
-			fprintf(stderr, "L%d: usage: push integer\n", lines);
+			fprintf(stderr, "L%lu: usage: push integer\n", handle.number_lines);
+			free_structure();
 			exit(EXIT_FAILURE);
 		}
 	}
