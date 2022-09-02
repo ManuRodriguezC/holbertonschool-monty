@@ -6,10 +6,14 @@
  *
  *
  */
-void (*get_opcode(char *opcode))(stack_t **stack, unsigned int line_number)
+
+int get_opcode(void)
 {
-	instruction_t opcodes[] = {
+	instruction_t opfunctions[] = {
 		{"push", op_push},
+		{"pall", op_pall},
+		{"add", op_add},
+		{"pop", op_pop},
 		{"pint", op_pint},
 		{"swap", op_swap},
 		{"nop", op_nop},
@@ -17,12 +21,22 @@ void (*get_opcode(char *opcode))(stack_t **stack, unsigned int line_number)
 
 	int i = 0;
 
-	for (; opcodes[i].opcode != NULL; i++)
+	for (; opfunctions[i].opcode != NULL; i++)
 	{
-		if (strcmp(opcodes[i].opcode, opcode) == 0)
-		       return (opcodes[i].f);
+		if (strcmp(opfunctions[i].opcode, handle.rev_token) == 0)
+		{
+			opfunctions[i].f(&handle.head, handle.number_lines);
+			break;
+		}
 	}
-	return (NULL);
 
+	if (!opfunctions[i].opcode)
+	{
+		fprintf(stderr, "L%ld: unknown instruction %s\n",
+		handle.number_lines, handle.rev_token);
+		free_structure();
+		exit(EXIT_FAILURE);
+	}
 
+	return (0);
 }
