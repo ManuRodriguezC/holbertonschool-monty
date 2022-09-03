@@ -20,7 +20,7 @@ int interpreter_of_monty(void)
 			handle.copy_rev_token = strtok(NULL, DELIMIT);
 			if (!handle.copy_rev_token)
 			{
-				fprintf(stderr, "L%li: usage: push integer",
+				fprintf(stderr, "L%li: usage: push integer\n",
 				handle.number_lines);
 				exit(EXIT_FAILURE);
 			}
