@@ -72,8 +72,7 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 
 	if (temp->n < 65 || temp->n > 122)
 	{
-	fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
-		exit(EXIT_FAILURE);
+		exit(0);
 	}
 
 	while (temp)
