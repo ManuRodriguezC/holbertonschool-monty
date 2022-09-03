@@ -13,9 +13,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 	if (!stack)
-	{
 		exit(1);
-	}
 
 	new_node = malloc(sizeof(stack_t));
 

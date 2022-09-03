@@ -20,8 +20,8 @@ int interpreter_of_monty(void)
 			handle.copy_rev_token = strtok(NULL, DELIMIT);
 			if (!handle.copy_rev_token)
 			{
-				fprintf(stderr, "L%li: unknown instruction %s",
-				handle.number_lines, handle.rev_token);
+				fprintf(stderr, "L%li: usage: push integer",
+				handle.number_lines);
 				exit(EXIT_FAILURE);
 			}
 			rev_is_digit();
