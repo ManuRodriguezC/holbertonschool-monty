@@ -70,6 +70,8 @@ typedef struct handlers
 } handler;
 extern handler handle;
 
+handler handle;
+
 /* Protipypes */
 
 int main(int argc, char **argv);
