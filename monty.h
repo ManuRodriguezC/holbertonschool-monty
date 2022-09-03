@@ -67,7 +67,6 @@ typedef struct handlers
 	size_t number_lines;
 	size_t rev_size;
 	char *rev_token;
-	int queueflag;
 } handler;
 extern handler handle;
 
