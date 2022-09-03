@@ -21,6 +21,7 @@ int get_opcode(void)
 		{"mod", op_mod},
 		{"pchar", op_pchar},
 		{"pstr", op_pstr},
+		{"#Comment", op_nop},
 		{NULL, NULL}};
 
 	int i = 0;
