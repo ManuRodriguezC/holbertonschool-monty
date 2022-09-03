@@ -34,6 +34,19 @@ void op_mod(stack_t **stack, unsigned int line_number)
 }
 
 /**
+ *
+ *
+ */
+void op_hash(stack_t **stack, unsigned int line_number)
+{
+	printf("%d\n", line_number);
+	fprintf(stderr, "L%ld: unknown instruction %s\n", 
+	handle.number_lines, handle.rev_token);
+	(void)stack;
+	exit(EXIT_FAILURE);
+}
+
+/**
  * op_pchar - The function prints the char at the top of the stack,
  * followed by a new line.
  * @stack: Stack structure.

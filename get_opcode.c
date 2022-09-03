@@ -19,6 +19,7 @@ int get_opcode(void)
 		{"mul", op_mul},
 		{"div", op_div},
 		{"mod", op_mod},
+		{"#Comment", op_hash},
 		{"pchar", op_pchar},
 		{"pstr", op_pstr},
 		{NULL, NULL}};
