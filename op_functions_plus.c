@@ -47,7 +47,6 @@ void op_pchar(stack_t **stack, unsigned int line_number)
 	if (temp == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-		free(*stack);
 		exit(EXIT_FAILURE);
 	}
 
