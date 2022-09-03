@@ -32,3 +32,27 @@ void op_mod(stack_t **stack, unsigned int line_number)
 	temp->next->n = temp->next->n / temp->n;
 	op_pop(stack, line_number);
 }
+
+/**
+ * op_pchar - prints the char at the top of the stack, followed by a new line.
+ * @stack: Stack structure.
+ * @line_number: Number of line in the file.
+ */
+void op_pchar(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+	int value = temp->n;
+
+	if (temp->n < 65 || temp->n > 122)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	
+	printf("%c\n", value);
+}
