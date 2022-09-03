@@ -34,7 +34,8 @@ void op_mod(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * op_pchar - prints the char at the top of the stack, followed by a new line.
+ * op_pchar - The function prints the char at the top of the stack,
+ * followed by a new line.
  * @stack: Stack structure.
  * @line_number: Number of line in the file.
  */
@@ -43,16 +44,47 @@ void op_pchar(stack_t **stack, unsigned int line_number)
 	stack_t *temp = *stack;
 	int value = temp->n;
 
+	if (temp == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		free(*stack);
+		exit(EXIT_FAILURE);
+	}
+
 	if (temp->n < 65 || temp->n > 122)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (stack == NULL)
+
+	printf("%c\n", value);
+}
+
+/**
+ * op_pstr - The function  prints the string starting at the top of the stack,
+ * followed by a new line.
+ * @stack: Stack structure.
+ * @line_number: Number of line in the file.
+ */
+void op_pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (temp->n < 65 || temp->n > 122)
 	{
-		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+	fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	
-	printf("%c\n", value);
+
+	while (temp)
+	{
+		if (temp->n == (0 + '0') || (temp->n < (0 + '0') || temp->n > (255 + '0')))
+		{
+			printf("\n");
+			exit(0);
+		}
+		printf("%c", temp->n);
+		temp = temp->next;
+	}
+	printf("\n");
 }

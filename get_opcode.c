@@ -20,6 +20,7 @@ int get_opcode(void)
 		{"div", op_div},
 		{"mod", op_mod},
 		{"pchar", op_pchar},
+		{"pstr", op_pstr},
 		{NULL, NULL}};
 
 	int i = 0;
