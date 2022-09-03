@@ -1,7 +1,5 @@
 #include "monty.h"
 
-#include "monty.h"
-
 /**
  * op_push - Insert to node in the satack
  * @stack: structure stack.
@@ -112,4 +110,21 @@ void op_swap(stack_t **stack, unsigned int line_number)
 	change = (*stack)->n;
 	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = change;
+}
+
+/**
+ * op_pint - Function that  prints the value at the top of the stack,
+ * followed by a new line.
+ * @stack: structure stack.
+ * @line_number: NUmber of lines in file
+ */
+
+void op_pint(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*stack)->n);
 }
