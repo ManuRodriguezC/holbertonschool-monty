@@ -112,11 +112,11 @@ void op_div(stack_t **stack, unsigned int line_number)
  */
 void op_mul(stack_t **stack, unsigned int line_number)
 {
-	stack_t *current = *stack;
 	stack_t *temp = *stack;
-	int count;
+	stack_t *current = *stack;
+	int count = 0;
 
-	while (stack)
+	while (current)
 	{
 		count++;
 		current = current->next;
