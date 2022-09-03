@@ -15,6 +15,9 @@ int get_opcode(void)
 		{"pint", op_pint},
 		{"swap", op_swap},
 		{"nop", op_nop},
+		{"sub", op_sub},
+		{"div", op_div},
+		{"mod", op_mod},
 		{NULL, NULL}};
 
 	int i = 0;
