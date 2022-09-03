@@ -1,7 +1,9 @@
 #include "monty.h"
 
 /**
- *
+ * op_add - Function that adds the top two elements of the stack.
+ * @stack: Stack structure
+ * @line_number: Number of line in the file
  */
 
 void op_add(stack_t **stack, unsigned int line_number)
@@ -27,4 +29,15 @@ void op_add(stack_t **stack, unsigned int line_number)
 
 	(tmp->next)->n = tmp->n + (tmp->next)->n;
 	op_pop(stack, line_number);
+}
+
+/**
+ * op_nop - Functions that doesn’t do anything.
+ * @stack: Stack structure
+ * @line_number: Number of line in the file
+ */
+void op_nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
 }
