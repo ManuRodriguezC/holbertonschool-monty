@@ -1,8 +1,8 @@
 #include "monty.h"
 
 /**
- *
- *
+ * interpreter_of_monty - processes monty instructions
+ * Return: 0 on success, EXIT_FAILURE on error
  */
 
 int interpreter_of_monty(void)

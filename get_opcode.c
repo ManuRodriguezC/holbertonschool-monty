@@ -1,10 +1,8 @@
 #include "monty.h"
 
 /**
- *
- *
- *
- *
+ * get_opcode - compares instructions to opcodes and calls functions
+ * Return: 0 on success, EXIT_FAILURE on error
  */
 
 int get_opcode(void)

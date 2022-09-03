@@ -18,7 +18,7 @@ void free_dlistint(stack_t *head)
 }
 
 /**
-* free_all - frees allocated memory
+* free_structure - frees allocated memory
 * Return: Void
 **/
 

@@ -1,9 +1,8 @@
 #include "monty.h"
 
 /**
- *
- *
- *
+ * rev_is_digit - determines if string is number
+ * Return: 0 on success, exits on failure
  */
 
 void rev_is_digit(void)
